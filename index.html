@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Berenice Aiassa — Community Manager & Marketing Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:     #FBF8F3;
+    --bg2:    #F2EDE3;
+    --bg3:    #EDE7DA;
+    --card:   #FFFFFF;
+    --border: #E0D8CC;
+    --text:   #1A1410;
+    --muted:  #7A6E63;
+    --accent: #C85A2A;
+    --accent2:#E8956D;
+    --tag-bg: #FFF0EA;
+    --tag-tx: #C85A2A;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.25rem 4rem;
+    background: rgba(251,248,243,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.1rem; font-weight: 700;
+    letter-spacing: 0.02em; color: var(--text);
+  }
+  .nav-logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--muted);
+    font-size: 0.83rem; letter-spacing: 0.06em; text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 8rem 4rem 4rem;
+    position: relative; overflow: hidden;
+    background: var(--bg);
+  }
+  .hero-noise {
+    position: absolute; inset: 0; z-index: 0;
+    background-image:
+      radial-gradient(ellipse 60% 50% at 80% 50%, rgba(200,90,42,0.07) 0%, transparent 70%),
+      radial-gradient(ellipse 40% 60% at 20% 80%, rgba(232,149,109,0.05) 0%, transparent 60%);
+  }
+  .hero-content { position: relative; z-index: 1; max-width: 900px; }
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--tag-bg); border: 1px solid rgba(200,90,42,0.25);
+    color: var(--accent); padding: 0.4rem 1rem; border-radius: 50px;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+  .hero-eyebrow::before { content: '●'; font-size: 0.5rem; animation: blink 2s ease-in-out infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  h1 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 8rem);
+    font-weight: 800; line-height: 0.95;
+    margin-bottom: 2rem; letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  h1 .line2 { color: var(--accent); }
+  .hero-desc {
+    font-size: 1.1rem; color: var(--muted); max-width: 500px;
+    line-height: 1.75; margin-bottom: 3rem;
+  }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--accent); color: #fff;
+    padding: 0.9rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.88rem; font-weight: 700;
+    letter-spacing: 0.03em;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(200,90,42,0.3); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    border: 1px solid var(--border); color: var(--text);
+    padding: 0.9rem 2rem; border-radius: 50px;
+    text-decoration: none; font-size: 0.88rem; font-weight: 500;
+    transition: border-color 0.15s, color 0.15s;
+  }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    display: flex; gap: 3rem; margin-top: 5rem;
+    padding-top: 3rem; border-top: 1px solid var(--border);
+  }
+  .hero-stat-num {
+    font-family: 'Syne', sans-serif; font-size: 2.2rem; font-weight: 700;
+    color: var(--accent); line-height: 1;
+  }
+  .hero-stat-label { font-size: 0.78rem; color: var(--muted); margin-top: 0.3rem; text-transform: uppercase; letter-spacing: 0.05em; }
+
+  /* ── SECTIONS ── */
+  section { padding: 6rem 4rem; }
+  .section-tag {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 1rem; font-weight: 600;
+  }
+  .section-tag::before { content: ''; display: block; width: 20px; height: 1px; background: var(--accent); }
+  h2 {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 700; line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.01em;
+    color: var(--text);
+  }
+  .section-sub { color: var(--muted); font-size: 1rem; max-width: 500px; margin-bottom: 3.5rem; }
+
+  /* ── SOBRE MÍ ── */
+  .about-wrap {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start;
+  }
+  .about-text p { color: var(--muted); font-size: 1rem; line-height: 1.85; margin-bottom: 1.25rem; }
+  .about-text strong { color: var(--text); font-weight: 600; }
+  .skills-list { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem; }
+  .skill-pill {
+    background: var(--tag-bg); border: 1px solid rgba(200,90,42,0.2);
+    color: var(--tag-tx); padding: 0.4rem 0.9rem; border-radius: 50px;
+    font-size: 0.8rem; font-weight: 500;
+    transition: background 0.2s;
+  }
+  .skill-pill:hover { background: var(--accent); color: #fff; }
+
+  .about-cards { display: flex; flex-direction: column; gap: 1rem; }
+  .about-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .about-card:hover { border-color: var(--accent2); box-shadow: 0 6px 24px rgba(200,90,42,0.08); }
+  .about-card-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: var(--tag-bg); display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem; flex-shrink: 0;
+  }
+  .about-card h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--text); }
+  .about-card p { font-size: 0.82rem; color: var(--muted); }
+
+  /* ── EXPERIENCIA ── */
+  .exp-section { background: var(--bg2); }
+  .timeline { max-width: 780px; display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: grid; grid-template-columns: 160px 1fr;
+    border-top: 1px solid var(--border); padding: 2.5rem 0;
+    gap: 2.5rem;
+  }
+  .timeline-item:last-child { border-bottom: 1px solid var(--border); }
+  .t-date { font-size: 0.78rem; color: var(--muted); padding-top: 0.15rem; line-height: 1.6; font-weight: 500; }
+  .t-content h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 0.2rem; color: var(--text); }
+  .t-company { font-size: 0.85rem; font-weight: 600; color: var(--accent); margin-bottom: 1rem; }
+  .t-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .t-bullets li { font-size: 0.88rem; color: var(--muted); padding-left: 1.2rem; position: relative; line-height: 1.6; }
+  .t-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--accent2); font-size: 0.7rem; top: 0.2em; }
+
+  /* ── PORTAFOLIO ── */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1.25rem;
+  }
+  .p-card {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 20px; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  }
+  .p-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 24px 60px rgba(200,90,42,0.12);
+    border-color: var(--accent2);
+  }
+  .p-card.wide   { grid-column: span 7; }
+  .p-card.narrow { grid-column: span 5; }
+  .p-card.half   { grid-column: span 6; }
+
+  /* Media */
+  .p-media {
+    width: 100%; overflow: hidden; position: relative;
+    background: var(--bg2);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .p-media.tall   { min-height: 340px; }
+  .p-media.medium { min-height: 260px; }
+
+  /* Images: contain so nothing gets cropped, click to enlarge */
+  .p-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    cursor: zoom-in;
+    transition: transform 0.4s ease;
+    max-height: 420px;
+  }
+  .p-card:hover .p-media img { transform: scale(1.02); }
+
+  /* Video */
+  .p-media video { width: 100%; display: block; max-height: 420px; background: #000; }
+
+  /* Badge */
+  .p-badge {
+    position: absolute; top: 12px; right: 12px; z-index: 2;
+    background: rgba(255,255,255,0.88); backdrop-filter: blur(6px);
+    color: var(--text); padding: 0.3rem 0.75rem; border-radius: 50px;
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.05em;
+    border: 1px solid var(--border);
+  }
+
+  .p-info { padding: 1.5rem; }
+  .p-brand { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.4rem; }
+  .p-title { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--text); }
+  .p-desc  { font-size: 0.83rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── LIGHTBOX ── */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 999;
+    background: rgba(0,0,0,0.88); backdrop-filter: blur(8px);
+    align-items: center; justify-content: center; padding: 2rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 92vw; max-height: 90vh;
+    object-fit: contain; border-radius: 12px;
+    box-shadow: 0 32px 100px rgba(0,0,0,0.5);
+  }
+  .lightbox-close {
+    position: absolute; top: 1.5rem; right: 1.5rem;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+    color: #fff; font-size: 1.3rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s;
+  }
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+  /* ── HERRAMIENTAS ── */
+  .tools-section { background: var(--bg2); }
+  .tools-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.25rem; }
+  .tool-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 1.75rem; transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .tool-card:hover { border-color: var(--accent2); box-shadow: 0 6px 24px rgba(200,90,42,0.08); }
+  .tool-cat { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 0.75rem; }
+  .tool-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 1rem; color: var(--text); }
+  .tag-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    background: var(--bg2); border: 1px solid var(--border);
+    color: var(--muted); padding: 0.3rem 0.75rem; border-radius: 50px; font-size: 0.76rem; font-weight: 500;
+  }
+  .tag.hi { background: var(--tag-bg); border-color: rgba(200,90,42,0.2); color: var(--accent); }
+
+  /* ── FORMACIÓN ── */
+  .edu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.25rem; }
+  .edu-card {
+    background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    padding: 1.75rem; position: relative; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .edu-card:hover { border-color: var(--accent2); }
+  .edu-card::after {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent2), var(--accent));
+  }
+  .edu-year { font-size: 0.72rem; color: var(--accent); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.75rem; }
+  .edu-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text); }
+  .edu-inst { font-size: 0.83rem; color: var(--muted); }
+
+  /* ── CONTACTO ── */
+  .contact-section {
+    background: var(--bg2);
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+    border-top: 1px solid var(--border);
+  }
+  .contact-big {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 800; line-height: 1.1; letter-spacing: -0.02em;
+    color: var(--text);
+  }
+  .contact-big span { color: var(--accent); }
+  .contact-sub { color: var(--muted); font-size: 1rem; margin: 1.5rem 0 2rem; line-height: 1.7; }
+  .contact-items { display: flex; flex-direction: column; gap: 1.25rem; }
+  .c-item {
+    display: flex; align-items: center; gap: 1rem;
+    background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+    padding: 1.1rem 1.5rem; transition: border-color 0.2s;
+  }
+  .c-item:hover { border-color: var(--accent2); }
+  .c-icon { font-size: 1.2rem; flex-shrink: 0; width: 36px; text-align: center; }
+  .c-label { font-size: 0.72rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.15rem; }
+  .c-val { font-size: 0.92rem; color: var(--text); font-weight: 500; }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center; padding: 2rem 4rem;
+    font-size: 0.78rem; color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-content > * { opacity: 0; animation: fadeUp 0.7s ease forwards; }
+  .hero-eyebrow  { animation-delay: 0.1s; }
+  h1             { animation-delay: 0.25s; }
+  .hero-desc     { animation-delay: 0.4s; }
+  .hero-actions  { animation-delay: 0.55s; }
+  .hero-stats    { opacity: 0; animation: fadeUp 0.7s 0.7s ease forwards; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { padding: 7rem 1.5rem 3rem; }
+    .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+    section { padding: 4rem 1.5rem; }
+    .about-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .p-card.wide, .p-card.narrow, .p-card.half { grid-column: span 12; }
+    .contact-section { grid-template-columns: 1fr; gap: 2.5rem; }
+    footer { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Berenice<span>.</span></div>
+  <ul class="nav-links">
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#experiencia">Experiencia</a></li>
+    <li><a href="#trabajos">Portafolio</a></li>
+    <li><a href="#herramientas">Herramientas</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-noise"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Community Manager & Marketing Digital</div>
+    <h1>
+      <span class="line1">Hola, soy</span><br>
+      <span class="line2">Berenice.</span>
+    </h1>
+    <p class="hero-desc">Gestiono redes sociales, creo contenido estratégico y convierto métricas en decisiones. Para marcas que quieren crecer de forma auténtica.</p>
+    <div class="hero-actions">
+      <a href="#trabajos" class="btn-primary">Ver mis trabajos →</a>
+      <a href="#contacto" class="btn-outline">Contactarme</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="hero-stat-num">3+</div>
+      <div class="hero-stat-label">Marcas gestionadas</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">100%</div>
+      <div class="hero-stat-label">Contenido propio</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">CBA</div>
+      <div class="hero-stat-label">Córdoba, Argentina</div>
+    </div>
+    <div>
+      <div class="hero-stat-num">2025</div>
+      <div class="hero-stat-label">Inicio en el rubro</div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <p class="section-tag">Quién soy</p>
+  <div class="about-wrap">
+    <div>
+      <h2>Analítica,<br>creativa y orientada<br>a resultados.</h2>
+      <div class="about-text" style="margin-top:2rem;">
+        <p>Soy estudiante de <strong>Análisis de Mercados y Estrategias de Comercialización</strong> en el IES Córdoba. Me especializo en Community Management con un enfoque fuertemente analítico: no solo genero contenido, sino que mido, interpreto y optimizo cada acción.</p>
+        <p>Trabajé con marcas de diferentes rubros —retail, gastronomía, moda y eventos— adaptando la comunicación a cada público y plataforma.</p>
+      </div>
+      <div class="skills-list">
+        <span class="skill-pill">Instagram</span>
+        <span class="skill-pill">TikTok</span>
+        <span class="skill-pill">Facebook</span>
+        <span class="skill-pill">Canva</span>
+        <span class="skill-pill">CapCut</span>
+        <span class="skill-pill">Copywriting</span>
+        <span class="skill-pill">Meta Business Suite</span>
+        <span class="skill-pill">Google Analytics</span>
+        <span class="skill-pill">Calendario de contenido</span>
+        <span class="skill-pill">Diseño gráfico</span>
+        <span class="skill-pill">Edición de video</span>
+        <span class="skill-pill">HubSpot</span>
+      </div>
+    </div>
+    <div class="about-cards">
+      <div class="about-card">
+        <div class="about-card-icon">📱</div>
+        <div>
+          <h4>Gestión de redes sociales</h4>
+          <p>Estrategia, planificación y ejecución de contenidos en Instagram, Facebook y TikTok</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🎨</div>
+        <div>
+          <h4>Creación de contenido</h4>
+          <p>Diseño gráfico, edición de video, copywriting y piezas audiovisuales para cada plataforma</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">📊</div>
+        <div>
+          <h4>Análisis de métricas</h4>
+          <p>Interpretación de datos, reportes de performance y optimización de campañas</p>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="about-card-icon">🤝</div>
+        <div>
+          <h4>Atención y comunidad</h4>
+          <p>Gestión de mensajes, comentarios y construcción de comunidad fiel a la marca</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCIA -->
+<section id="experiencia" class="exp-section">
+  <p class="section-tag">Trayectoria</p>
+  <h2>Experiencia profesional</h2>
+  <p class="section-sub">Marcas con las que trabajé y los resultados que generé en cada una.</p>
+  <div class="timeline">
+
+    <div class="timeline-item">
+      <div class="t-date">Abr. 2026</div>
+      <div class="t-content">
+        <h3>Asistente de Marketing</h3>
+        <p class="t-company">Estancia La Blanca</p>
+        <ul class="t-bullets">
+          <li>Estrategia de comunicación para evento de cata de vinos</li>
+          <li>Planificación de contenidos para captación de asistentes</li>
+          <li>Segmentación y adaptación del mensaje según público objetivo</li>
+          <li>Apoyo en posicionamiento del evento a nivel local</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-date">Feb – May 2026</div>
+      <div class="t-content">
+        <h3>Analista de Marketing Digital / Community Manager</h3>
+        <p class="t-company">Súper La Nona Elba</p>
+        <ul class="t-bullets">
+          <li>Gestión estratégica de Instagram orientada a ventas y posicionamiento local</li>
+          <li>Planificación y ejecución de calendario de contenidos mensual</li>
+          <li>Creación de piezas gráficas y audiovisuales (diseño, edición y copywriting)</li>
+          <li>Análisis de métricas y optimización de alcance e interacción</li>
+          <li>Adaptación de comunicación según brief inicial del cliente</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-date">Nov 2025 – Feb 2026</div>
+      <div class="t-content">
+        <h3>Community Manager / Marketing Digital</h3>
+        <p class="t-company">Pétalos Lencería</p>
+        <ul class="t-bullets">
+          <li>Gestión integral de redes sociales (feed e historias)</li>
+          <li>Desarrollo de identidad visual de marca</li>
+          <li>Creación de contenido: diseño, copywriting y video</li>
+          <li>Análisis de métricas y optimización de resultados</li>
+          <li>Atención a clientes mediante mensajes y comentarios</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PORTAFOLIO -->
+<section id="trabajos">
+  <p class="section-tag">Mis trabajos</p>
+  <h2>Portafolio</h2>
+  <p class="section-sub">Fotos y videos de los proyectos reales en los que participé. Hacé clic en cualquier imagen para verla completa.</p>
+
+  <div class="portfolio-grid">
+
+    <!-- Lencería — foto real -->
+    <div class="p-card wide">
+      <div class="p-media tall" style="position:relative;">
+        <img
+          src="WhatsApp Image 2026-05-13 at 12.08.52 PM.jpeg"
+          alt="Conjunto de lencería — Pétalos / Woman"
+          onclick="openLightbox(this.src)"
+          onerror="this.parentElement.innerHTML='<div style=\'padding:3rem;text-align:center;color:var(--muted)\'>📸 Imagen no encontrada</div>'">
+        <span class="p-badge">📸 Foto</span>
+      </div>
+      <div class="p-info">
+        <p class="p-brand">Pétalos Lencería</p>
+        <p class="p-title">Contenido de producto — Lencería Woman</p>
+        <p class="p-desc">Fotografía de producto para redes. Presentación de conjunto de lencería con estética femenina, trabajando identidad visual de marca y estrategia de feed.</p>
+      </div>
+    </div>
+
+    <!-- Supermercado — pieza gráfica Fresco y Sano -->
+    <div class="p-card narrow">
+      <div class="p-media tall" style="position:relative;">
+        <img
+          src="WhatsApp Image 2026-05-13 at 12.22.48 PM.jpeg"
+          alt="Pieza gráfica Fresco y Sano — Súper La Nona Elba"
+          onclick="openLightbox(this.src)"
+          onerror="this.parentElement.innerHTML='<div style=\'padding:3rem;text-align:center;color:var(--muted)\'>🎨 Imagen no encontrada</div>'">
+        <span class="p-badge">🎨 Diseño</span>
+      </div>
+      <div class="p-info">
+        <p class="p-brand">Súper La Nona Elba</p>
+        <p class="p-title">Pieza gráfica — "Fresco y Sano"</p>
+        <p class="p-desc">Diseño de flyer promocional para redes sociales. Concepto visual vibrante orientado a posicionar productos frescos y saludables del local.</p>
+      </div>
+    </div>
+
+    <!-- Estancia La Blanca — VIDEO cata de vinos -->
+    <div class="p-card half">
+      <div class="p-media medium" style="position:relative; background:#000;">
+        <video
+          controls
+          preload="metadata"
+          style="width:100%; display:block; max-height:400px; background:#000;">
+          <source src="WhatsApp Video 2026-05-13 at 12.20.19 PM.mp4" type="video/mp4">
+          Tu navegador no soporta video HTML5.
+        </video>
+        <span class="p-badge">▶ Video</span>
+      </div>
+      <div class="p-info">
+        <p class="p-brand">Estancia La Blanca</p>
+        <p class="p-title">Campaña — Evento cata de vinos</p>
+        <p class="p-desc">Video producido para redes sociales. Estrategia de comunicación y captación de asistentes para evento exclusivo de degustación.</p>
+      </div>
+    </div>
+
+    <!-- Métricas reales — Súper La Nona Elba -->
+    <div class="p-card half">
+      <div class="p-media medium" style="position:relative;">
+        <img
+          src="WhatsApp Image 2026-05-13 at 12.44.17 PM.jpeg"
+          alt="Métricas Instagram — Súper La Nona Elba"
+          onclick="openLightbox(this.src)"
+          onerror="this.parentElement.innerHTML='<div style=\'padding:3rem;text-align:center;color:var(--muted)\'>📊 Imagen no encontrada</div>'">
+        <span class="p-badge">📊 Métricas</span>
+      </div>
+      <div class="p-info">
+        <p class="p-brand">Súper La Nona Elba — Resultados</p>
+        <p class="p-title">Métricas reales: Antes & Después de la estrategia</p>
+        <p class="p-desc">Estadísticas de Instagram que muestran el impacto de la estrategia aplicada: +1.351 visualizaciones, 837 cuentas alcanzadas y crecimiento sostenido de engagement.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section id="herramientas" class="tools-section">
+  <p class="section-tag">Lo que uso</p>
+  <h2>Herramientas & habilidades</h2>
+  <p class="section-sub">El stack completo con el que trabajo día a día para gestionar, crear y medir.</p>
+  <div class="tools-grid">
+
+    <div class="tool-card">
+      <p class="tool-cat">📱 Redes Sociales</p>
+      <h3>Plataformas que gestiono</h3>
+      <div class="tag-row">
+        <span class="tag hi">Instagram</span>
+        <span class="tag hi">Facebook</span>
+        <span class="tag hi">TikTok</span>
+        <span class="tag">LinkedIn</span>
+        <span class="tag">Stories & Reels</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <p class="tool-cat">🎨 Diseño & Contenido</p>
+      <h3>Creación visual</h3>
+      <div class="tag-row">
+        <span class="tag hi">Canva</span>
+        <span class="tag hi">CapCut</span>
+        <span class="tag">Affinity</span>
+        <span class="tag">Diseño gráfico</span>
+        <span class="tag">Edición de video</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <p class="tool-cat">📊 Análisis & Métricas</p>
+      <h3>Data & performance</h3>
+      <div class="tag-row">
+        <span class="tag hi">Meta Business Suite</span>
+        <span class="tag hi">Google Analytics</span>
+        <span class="tag">Excel avanzado</span>
+        <span class="tag">Dashboards</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <p class="tool-cat">🤝 CRM & Gestión</p>
+      <h3>Organización y clientes</h3>
+      <div class="tag-row">
+        <span class="tag hi">HubSpot</span>
+        <span class="tag">Salesforce</span>
+        <span class="tag">Cal. de contenidos</span>
+        <span class="tag">Atención al cliente</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <p class="tool-cat">✍️ Comunicación</p>
+      <h3>Estrategia & redacción</h3>
+      <div class="tag-row">
+        <span class="tag hi">Copywriting</span>
+        <span class="tag hi">Briefing</span>
+        <span class="tag">Estrategia de contenido</span>
+        <span class="tag">Segmentación</span>
+      </div>
+    </div>
+
+    <div class="tool-card">
+      <p class="tool-cat">🧠 Soft Skills</p>
+      <h3>Competencias</h3>
+      <div class="tag-row">
+        <span class="tag">Pensamiento analítico</span>
+        <span class="tag">Adaptabilidad</span>
+        <span class="tag">Organización</span>
+        <span class="tag">Trabajo en equipo</span>
+        <span class="tag">Proactividad</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FORMACIÓN -->
+<section id="formacion">
+  <p class="section-tag">Formación</p>
+  <h2>Educación</h2>
+  <p class="section-sub">Base académica y cursos que potencian mi trabajo.</p>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <p class="edu-year">2025 – Actualidad</p>
+      <h3>Analista de Mercados y Estrategias de Comercialización</h3>
+      <p class="edu-inst">Colegio Universitario IES · Córdoba</p>
+    </div>
+    <div class="edu-card">
+      <p class="edu-year">Formación complementaria</p>
+      <h3>Marketing Digital y Redes Sociales</h3>
+      <p class="edu-inst">UTN · Universidad Tecnológica Nacional</p>
+    </div>
+    <div class="edu-card">
+      <p class="edu-year">Formación complementaria</p>
+      <h3>Estrategias de Marketing Digital</h3>
+      <p class="edu-inst">Secretaría de Innovación · Córdoba</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto" class="contact-section">
+  <div>
+    <p class="contact-big">¿Hablamos<br>y <span>hacemos</span><br>algo grande?</p>
+    <p class="contact-sub">Disponible para proyectos, colaboraciones y oportunidades laborales en Córdoba y modalidad remota.</p>
+    <a href="mailto:aiassaberenice@gmail.com" class="btn-primary">Escribime un email →</a>
+  </div>
+  <div class="contact-items">
+    <div class="c-item">
+      <span class="c-icon">📧</span>
+      <div>
+        <div class="c-label">Email</div>
+        <div class="c-val">aiassaberenice@gmail.com</div>
+      </div>
+    </div>
+    <div class="c-item">
+      <span class="c-icon">📍</span>
+      <div>
+        <div class="c-label">Ubicación</div>
+        <div class="c-val">Córdoba Capital, Argentina</div>
+      </div>
+    </div>
+    <div class="c-item">
+      <span class="c-icon">💼</span>
+      <div>
+        <div class="c-label">Disponibilidad</div>
+        <div class="c-val">Freelance & relación de dependencia</div>
+      </div>
+    </div>
+    <div class="c-item">
+      <span class="c-icon">🎓</span>
+      <div>
+        <div class="c-label">Formación actual</div>
+        <div class="c-val">Analista de Mercados · IES Córdoba</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Berenice Aiassa · Community Manager & Marketing Digital · Córdoba, Argentina</p>
+</footer>
+
+<script>
+  function openLightbox(src) {
+    document.getElementById('lightbox-img').src = src;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+</script>
+
+</body>
+</html>
